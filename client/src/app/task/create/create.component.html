@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="card mt-5">
+        <div class="card-header">
+            <h4>Create Task
+            <a routerLink="/tasks" class="btn btn-danger float-end">Back</a>
+            </h4>
+        </div>
+        <div class="card-body">
+            <div *ngIf="isLoading; else form">
+                <app-loader [title]="titleLoad"></app-loader>
+            </div>
+            <ng-template #form>
+                <form (ngSubmit)="createTask()"  method="post">
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">Title</label>
+                        <input [(ngModel)]="title" type="text" class="form-control" id="formGroupExampleInput" name="title"
+                            placeholder="Title">
+                        <span *ngIf="errors?.title" class="text-danger">{{errors.title.msg}}</span>
+                
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                        <textarea [(ngModel)]="description" class="form-control" id="exampleFormControlTextarea1" name="description"
+                            rows="3" placeholder="Description"></textarea>
+                        <span *ngIf="errors?.description" class="text-danger">{{errors.description.msg}}</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="userDropdown" class="form-label">Assign to User</label>
+                        <select [(ngModel)]="selectedUserId" class="form-select" name="selectedUserId">
+                            <option value=""  selected>Select a user</option>
+                            <option *ngFor="let user of users" [value]="+user.id">{{ user.name }}</option>
+                        </select>
+            
+                    </div>
+                    <div class="mb-3">
+                        <label for="statusDropdown" class="form-label">Status</label>
+                        <select [(ngModel)]="selectedStatusId" class="form-select" name="selectedStatusId" place >
+                            <option value=""  selected>Select a status</option>
+                            <option *ngFor="let status of statuses" [value]="+status.id">{{ status.name }}</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </ng-template>
+            
+        </div>
+    </div>
+</div>

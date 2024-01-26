@@ -1,0 +1,207 @@
+{
+	"info": {
+		"_postman_id": "eb6cd2d5-5404-4c39-be0e-2c4aa7ed18bf",
+		"name": "Task-Management-System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31765247"
+	},
+	"item": [
+		{
+			"name": "Task Operations:",
+			"item": [
+				{
+					"name": "Endpoint to get a list of tasks.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/task",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Endpoint to delete a task.",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/task/11",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"task",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Endpoint to update task details.",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"New Task\",\r\n    \"description\":\"Description of the task\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/task/12",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"task",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Endpoint to create a new task.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Create task\",\r\n    \"description\":\"Description description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/task/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"task",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task Assignment:",
+			"item": [
+				{
+					"name": "Endpoint to assign a task to a user.",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":1,\r\n    \"taskId\":12\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/task/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"task",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Endpoint to view tasks assigned to a specific user.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/task/user/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"task",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task Status:",
+			"item": [
+				{
+					"name": "Endpoint to update the status of a task",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"statusId\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/status/task/12",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"status",
+								"task",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Endpoint to retrieve tasks based on their status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/task/status/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"task",
+								"status",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

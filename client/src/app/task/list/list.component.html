@@ -1,0 +1,59 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-uppercase mb-0">Manage Tasks 
+                        <button routerLink="/task/create" class="float-end btn btn-primary">Add new task</button>
+                    </h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table no-wrap user-table mb-0">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="border-0 text-uppercase font-medium pl-4">#</th>
+                                <th scope="col" class="border-0 text-uppercase font-medium">Title</th>
+                                <th scope="col" class="border-0 text-uppercase font-medium">Description</th>
+                                <th scope="col" class="border-0 text-uppercase font-medium">Status</th>
+                                <th scope="col" class="border-0 text-uppercase font-medium">Assigned To</th>
+
+                                <th scope="col" class="border-0 text-uppercase font-medium text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let task of tasks; let i=index">
+                                <td class="pl-4">{{i+1}}</td>
+                                <td>
+                                    <h6 class="font-medium mb-0 ">{{task.title}}</h6>
+                                </td>
+                                <td>
+                                    <span class="">{{ task.description | slice:0:25 }}{{
+                                        task.description?.length > 20 ? '...' : '' }}</span>
+                                </td>
+
+                                <td>
+                                    <span class="text-muted">{{task.statusName}}</span><br>
+                                 
+                                </td>
+                                <td>
+                                    <span class="text-muted">{{task.assignedTo}}</span><br>
+                                   
+                                </td>
+
+                                <td >
+                                    <button (click)="deleteTask(task.id)"  type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2 " > <i
+                                            class="fa fa-trash"> </i> </button> 
+                                    <button [routerLink]= "['../task/edit/', task.id]" type="button"
+                                        class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2 float-end"><i
+                                            class="fa fa-edit"> </i> </button>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
